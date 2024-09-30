@@ -39,6 +39,18 @@ def handle_events():
             elif event.key == SDLK_DOWN:
                 height += 1
 
+def screen_boundary():
+    global x, y
+
+    if x < 0:
+        x = 0
+    elif x > 800 - 60:
+        x = 800 - 60
+    if y < 0:
+        y = 0
+    elif y > 600 - 60:
+        y = 600 - 60
+
 while running:
     clear_canvas()
 
@@ -52,6 +64,8 @@ while running:
 
     x += dir * 5
     y += height * 5
+
+    screen_boundary()
 
     delay(0.05)
 
