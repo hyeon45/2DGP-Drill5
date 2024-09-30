@@ -6,7 +6,7 @@ character = load_image('download_character_image.png')
 
 running = True
 frame = 0
-x = 800 // 2
+x = 800 // 4
 y = 90
 dir = 0
 height = 0
