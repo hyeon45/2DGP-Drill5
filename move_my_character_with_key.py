@@ -51,11 +51,25 @@ def screen_boundary():
     elif y > 600 - 60:
         y = 600 - 60
 
+def draw_character():
+    global flame, x, y
+
+    if dir > 0:
+        character.clip_draw(frame * 60, 60, 60, 60, x, y, 100, 100)
+    elif dir < 0:
+        character.clip_draw(frame * 60, 120, 60, 60, x, y, 100, 100)
+    elif height > 0:
+        character.clip_draw(frame * 60, 0, 60, 60, x, y, 100, 100)
+    elif height < 0:
+        character.clip_draw(frame * 60, 180, 60, 60, x, y, 100, 100)
+    else:
+        character.clip_draw(frame * 60, 0, 60, 60, x, y, 100, 100)
+
 while running:
     clear_canvas()
 
     background.draw_to_origin(0, 0, 800, 600)
-    character.clip_draw(frame * 60, 60 * 1, 60, 60, x, y, 100, 100)
+    draw_character()
 
     update_canvas()
     handle_events()
